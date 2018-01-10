@@ -1,0 +1,107 @@
+﻿@page
+@model IndexModel
+@using BankScraper.Models @*namespace*@
+@using BankScraper.Models.Scraper
+
+@{
+    ViewData["Title"] = "Pagina inicial";
+}
+
+<head>
+    <script type="text/javascript">
+    function ddListChange()
+        {
+        var a = $("#BankSelect option:selected").text()
+        document.getElementById("bankInput").value = a;
+        //alert(a);
+        }
+        </script>
+</head>
+<body>
+    <br>
+    <br>
+    <form id="my-form" method="post">
+        <div class="col-xs-4">
+            Selecione o Banco
+            <select class="form-control" id="BankSelect">
+                @{
+                foreach(var bank in Model.banks){
+                <option value= bank.BankNames>@bank.BankNames.ToString()</option>
+                }        
+                }
+            </select>
+            </div>
+            <div>
+            <label>
+            Agência:
+                <input type="text" class="form-control" asp-for="login.account_agency"/>
+                <span asp-validation-for="login.account_agency" ></span>
+            </label>
+            <label>
+            Conta corrente:
+                <input type="text" class="form-control"  asp-for="login.account_number"/>
+                <span asp-validation-for="login.account_number" ></span>
+            </label>
+            <label>
+            Senha: 
+                <input class="form-control" asp-for="login.password" type="password"/>
+                <span asp-validation-for="login.password" ></span>
+            </label>
+                <input type="hidden" id="bankInput" asp-for="login.bank"/>
+            <label>
+                <input type="submit" class="form-control" value="Consultar" onclick="ddListChange()"/>
+            </label>
+        </div>
+    </form>
+    <br>
+    <br>
+    <h3> Dados coletados: </h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Descrição:<th>Informações:</th>
+            </tr>
+@{
+            if(Model.account != null)
+            {
+                <tr><th>Banco<th>@Model.account.bank</th></tr>
+                <tr><th>Número da conta:<th>@Model.account.number</th></tr>
+                <tr><th>Usuário:<th>@Model.account.owner</th></tr>
+                <tr><th>Moeda:<th>@Model.account.currency</th></tr>
+                <tr><th>Crédito:<th>@Model.account.personal_credit</th></tr>
+
+
+            if(Model.account.purchase != null)
+                {
+                    <tr><th><h3> Trasações:</h3> <th> <h3></h3></th></tr>
+                    foreach (Purchase purchase in @Model.account.purchase)
+                    {
+                        <tr><th>Id Transação:<th>@purchase.id</th></tr>
+                        <tr><th>Descrição:<th>@purchase.description</th></tr>
+                        <tr><th>Valor:<th>@purchase.value</th></tr>
+                        <tr><th>Data:<th>@purchase.timestamp</th></tr>
+                        <tr><th>Valor:<th>@purchase.currency</th></tr>
+                        <tr><th><th></th></tr>
+                    }
+                }
+     
+            if(Model.account.transactions != null)
+            {
+                <tr><th><h3> Eventos:</h3> <th> <h3></h3></th></tr>
+                foreach (Events evs in @Model.account.transactions)
+                {
+                    <tr><th>Id Transação:<th>@evs.id</th></tr>
+                    <tr><th>Nome:<th>@evs.name</th></tr>
+                    <tr><th>Título:<th>@evs.title</th></tr>
+                    <tr><th>Categoria:<th>@evs.category</th></tr>
+                    <tr><th>Data:<th>@evs.time</th></tr>
+                    <tr><th>Valor:<th>@evs.amount</th></tr>
+                    <tr><th>Mensagem:<th>@evs.message</th></tr>
+                    <tr><th><th></th></tr>
+                }
+                }
+            }
+}
+        </thead>
+    </table>
+</body>
