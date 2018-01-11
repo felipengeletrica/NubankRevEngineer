@@ -76,6 +76,8 @@ namespace BankScraper.Controllers.IntegratedBanks
             Account account = new Account();
             JObject jevents = new JObject();
             JObject bills = new JObject();
+            JObject customer = new JObject();
+            JObject purchases = new JObject();
 
             //node Object ou element
             string json_object_element = "amount";
@@ -83,9 +85,11 @@ namespace BankScraper.Controllers.IntegratedBanks
             //get values JSON TOKENS
             jevents = getEvents();
             bills = getBillsSummary();
+            customer = getCustomer();
+            purchases = getPurchases();
+
 
             // **************** events ****************************
-
             //Nodes tokens events
             JToken _customer_id = jevents["customer_id"];
             JToken _links = jevents["_links"];
@@ -180,7 +184,7 @@ namespace BankScraper.Controllers.IntegratedBanks
             //}
 
             //Copy nubank events to events Scraper
-            account.transactions = nubank_events;
+            account.events = nubank_events;
             //Copy card limit
             account.personal_credit = limite_do_cartao;
             //purchases
@@ -358,6 +362,49 @@ namespace BankScraper.Controllers.IntegratedBanks
                 throw e;
             }
             return JNubankBills;
+        }
+
+        /// <summary>
+        /// Gets the customer informations
+        /// </summary>
+        /// <returns>The customer.</returns>
+        private JObject getCustomer()
+        {
+            JObject JNubank = new JObject();
+            //bills_summary
+            JToken access_feed = JNubankToken["_links"]["customer"]["href"];
+            try
+            {
+                JNubank = getJsonData(access_feed);
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            return JNubank;
+        }
+
+        /// <summary>
+        /// Gets the purchases.
+        /// </summary>
+        /// <returns>The purchases.</returns>
+        private JObject getPurchases()
+        {
+
+            JObject JNubank = new JObject();
+            //bills_summary
+            JToken access_feed = JNubankToken["_links"]["purchases"]["href"];
+            try
+            {
+                JNubank = getJsonData(access_feed);
+
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            return JNubank;
         }
     }
 }
