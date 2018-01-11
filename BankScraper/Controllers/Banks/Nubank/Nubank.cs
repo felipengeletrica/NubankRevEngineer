@@ -114,15 +114,27 @@ namespace BankScraper.Controllers.IntegratedBanks
             //get objects into a list
             IList<JToken> events = _events.Children().ToList();
             //Serialize JSON results into .NET objects 
-            List<NuEvents> nubank_events = new List<Events>();
+            List<Events> scraper_events = new List<Events>();
 
+            //PARSER  NUBANK to SCRAPER events
             foreach (JToken ev in events)
             {
-                Events nubank_event = ev.ToObject<Events>();
-                //corrections values
-                nubank_event.amount = util.ConvertValue(nubank_event.amount);
-                nubank_events.Add(nubank_event);
+                NubankEvents nubank_event = ev.ToObject<NubankEvents>();
+                Events scraper_ev = new Events();
+
+                scraper_ev.name = nubank_event.name;
+                scraper_ev.category = nubank_event.category;
+                scraper_ev.title = nubank_event.title;
+                scraper_ev.amount = util.ConvertValue(nubank_event.amount);
+                scraper_ev.time = nubank_event.time;
+                scraper_ev.message = nubank_event.message;
+                scraper_ev.id = nubank_event.id;
+
+                scraper_events.Add(scraper_ev);
             }
+
+            //Copy Events
+            account.events = scraper_events;
 
             //************  Card limit *****************
             //In main json find in node JSON
@@ -137,69 +149,10 @@ namespace BankScraper.Controllers.IntegratedBanks
                 //string card Value
                 limite_do_cartao = (card_amount / 100).ToString(".00");
             }
-
-            //********* Purchases  !! COMPRAS ****************
-            //// INIT BILLs SUMMARY //////////////////////////////////////////////////
-
-
-            //JToken _bills = bills["bills"];
-
-            ////JToken sss = _bills["state"];
-
-            ////get JSON events results
-            ////get objects into a list Valor da fatura
-            //IList<JToken> lbills = _bills.Children().ToList();
-            //var bill_status = (from s in _bills where s["state"] != null select s["state"]).ToList();
-            //IList<JToken> summarys = (from s in _bills where s["summary"] != null select s["summary"]).ToList();
-            ////Serialize JSON results into .NET objects 
-            //IList<Bills_summary> bills_summary = new List<Bills_Summary>();
-
-            //foreach (JToken summ in summarys)
-            //{
-            //    Bills_Summary bill_summary = summ.ToObject<Bills_Summary>();
-            //    bills_summary.Add(bill_summary);
-            //}
-
-            //Console.WriteLine("#######################   FATURA #########################");
-            ////Valor da fatura
-            //foreach (Bills_Summary sum in bills_summary)
-            //{
-            //    //Console.WriteLine("Status atual da fatura: " + bill_status.ToString());
-            //    Console.WriteLine("Pagamento " + nubank.ConvertValue(sum.payments));
-            //    Console.WriteLine("Total dse gastos nacionais " + nubank.ConvertValue(sum.interest_charge));
-            //    Console.WriteLine("Total dse gastos internacionais " + nubank.ConvertValue(sum.total_international));
-            //    Console.WriteLine("Vencimento da fatura " + sum.due_date);
-            //    Console.WriteLine("Pagamnento minimo " + nubank.ConvertValue(sum.precise_minimum_payment));
-            //    Console.WriteLine(sum.interest_reversal);
-            //    Console.WriteLine("Fechamento da fatura " + sum.close_date);
-            //    Console.WriteLine("Despesas: " + nubank.ConvertValue(sum.expenses));
-            //    Console.WriteLine(sum.total_credits);
-            //    Console.WriteLine(sum.past_balance);
-            //    Console.WriteLine("Fechamento da proxima fatura " + sum.effective_due_date);
-            //    Console.WriteLine("Taxas internacionais " + sum.international_tax);
-            //    Console.WriteLine("Taxas nacionais " + sum.tax);
-            //    Console.WriteLine(sum.adjustments);
-            //    Console.WriteLine(sum.precise_total_balance);
-            //    Console.WriteLine("Total finaciado " + sum.total_financed);
-            //    Console.WriteLine(sum.total_balance);
-            //    Console.WriteLine(sum.interest_rate);
-            //    Console.WriteLine(sum.total_national);
-            //    Console.WriteLine(sum.previous_bill_balance);
-            //    Console.WriteLine(sum.interest);
-            //    Console.WriteLine(sum.total_cumulative);
-            //    Console.WriteLine(sum.paid);
-            //    Console.WriteLine(sum.fees);
-            //    Console.WriteLine(sum.total_payments);
-            //    Console.WriteLine(sum.minimum_payment);
-            //    Console.WriteLine("Cliente desde  " + sum.open_date);
-            //    Console.WriteLine(sum.total_accrued);
-            //}
-
-            //Copy nubank events to events Scraper
-            account.events = nubank_events;
+            // account.events = nubank_events;
             //Copy card limit
             account.personal_credit = limite_do_cartao;
-            //purchases
+            //Purchases
 
             return account;
         }
