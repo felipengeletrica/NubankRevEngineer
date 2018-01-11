@@ -29,6 +29,9 @@
     <Folder Include="Models\Scraper\" />
     <Folder Include="Controllers\Banks\Nubank\" />
     <Folder Include="Models\Comum\" />
+    <Folder Include="Controllers\Banks\BancoDoBrasil\" />
+    <Folder Include="Controllers\Banks\Itau\" />
+    <Folder Include="Controllers\Banks\Template\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Pages\ValuesController.cs" />
