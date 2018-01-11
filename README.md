@@ -10,7 +10,7 @@ Program web suite to parse financial transactions from brazilian bank and benefi
 
 ## Current Supported Banks
 
-Nunbank
+Nubank, events
 
 ## Add new banks
 
