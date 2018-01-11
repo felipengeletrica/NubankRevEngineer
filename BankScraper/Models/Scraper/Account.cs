@@ -23,6 +23,7 @@ namespace BankScraper.Models.Scraper
         public string owner { get; set; }
         public List<Events> events{ get; set; }
         public List<Purchase> purchase { get; set; }
+        public Customer customer { get; set; }
         public string currency { get; set; }
         public string overdraft { get; set; }
         public string interest { get; set; }
