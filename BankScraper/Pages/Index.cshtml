@@ -85,10 +85,10 @@
                     }
                 }
      
-            if(Model.account.transactions != null)
+            if(Model.account.events != null)
             {
                 <tr><th><h3> Eventos:</h3> <th> <h3></h3></th></tr>
-                foreach (Events evs in @Model.account.transactions)
+                foreach (Events evs in @Model.account.events)
                 {
                     <tr><th>Id Transação:<th>@evs.id</th></tr>
                     <tr><th>Nome:<th>@evs.name</th></tr>
