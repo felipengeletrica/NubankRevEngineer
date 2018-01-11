@@ -1,11 +1,11 @@
 ﻿using System;
 
-namespace BankScraper.Models.Scraper
+namespace BankScraper.Models.Nubank
 {
     /// <summary>
     /// Transaction.
     /// </summary>
-    public class Events
+    public class NubankEvents
     {
        
         /// <summary>
@@ -23,7 +23,7 @@ namespace BankScraper.Models.Scraper
         /// <summary>
         /// Initializes a new instance of the <see cref="T:BankScraper.Models.Events"/> class.
         /// </summary>
-        public Events(){}
+        public NubankEvents(){}
      
         /// <summary>
         /// Initializes a new instance of the <see cref="T:BankScraper.Models.Events"/> class.
@@ -35,7 +35,7 @@ namespace BankScraper.Models.Scraper
         /// <param name="Time">Time.</param>
         /// <param name="Message">Message.</param>
         /// <param name="Id">Identifier.</param>
-        public Events(string Name, string Category, string Title, string Amount, string Time, string Message, string Id)
+        public NubankEvents(string Name, string Category, string Title, string Amount, string Time, string Message, string Id)
         {
             name = Name;
             category = Category;

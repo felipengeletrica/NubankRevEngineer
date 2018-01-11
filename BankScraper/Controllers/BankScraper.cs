@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using BankScraper.Models;
+using BankScraper.Models.Scraper;
+using BankScraper.Models.Comum;
 using BankScraper.Controllers.IntegratedBanks;
 
 

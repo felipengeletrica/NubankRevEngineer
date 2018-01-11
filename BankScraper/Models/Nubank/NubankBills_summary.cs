@@ -6,7 +6,7 @@ namespace BankScraper.Models.Nubank
     /// <summary>
     /// Bills summary.
     /// </summary>
-    public class Bills_summary
+    public class NubankBills_summary
     {
    
         public string payments { get; set; }

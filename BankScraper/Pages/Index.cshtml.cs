@@ -5,7 +5,8 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using BankScraper.Controllers;
-using BankScraper.Models;
+using BankScraper.Models.Comum;
+using BankScraper.Models.Scraper;
 
 
 namespace BankScraper.Pages

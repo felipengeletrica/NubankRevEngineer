@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace BankScraper.Models.Scraper
+namespace BankScraper.Models.Nubank
 {
-    public class Devices
+    public class NubankDevices
     {
         /// <summary>
         /// Gets or sets the identifier.
@@ -16,7 +16,7 @@ namespace BankScraper.Models.Scraper
         /// <summary>
         /// Initializes a new instance of the <see cref="T:BankScraper.Models.Scraper.Devices"/> class.
         /// </summary>
-        public Devices()
+        public NubankDevices()
         {
         }
         /// <summary>
@@ -26,7 +26,7 @@ namespace BankScraper.Models.Scraper
         /// <param name="Devices_id">Devices identifier.</param>
         /// <param name="User_agent">User agent.</param>
         /// <param name="PushToken">Push token.</param>
-        public Devices(string Id, string Devices_id, string[] User_agent, string PushToken)
+        public NubankDevices(string Id, string Devices_id, string[] User_agent, string PushToken)
         {
             id = Id;
             device_id = Devices_id;

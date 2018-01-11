@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace BankScraper.Models.Scraper
+namespace BankScraper.Models.Nubank
 {
-    public class Customer
+    public class NubankCustomer
     {
         /// <summary>
         /// Gets or sets the state of the address.
@@ -14,12 +14,12 @@ namespace BankScraper.Models.Scraper
         string address_postcode { get; set; }
         string billing_address_line1 { get; set; }
         string billing_address_state { get; set; }
-        Devices[] devices { get; set; }
+        NubankDevices[] devices { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:BankScraper.Models.Scraper.Customer"/> class.
         /// </summary>
-        public Customer()
+        public NubankCustomer()
         {
         }
 
@@ -33,7 +33,9 @@ namespace BankScraper.Models.Scraper
         /// <param name="Billing_address_line1">Billing address line1.</param>
         /// <param name="Billing_address_state">Billing address state.</param>
         /// <param name="Devices">Devices.</param>
-        public Customer(string Address_state, string Cpf, string Email, string Address_postcode, string Billing_address_line1, string Billing_address_state, Devices[] Devices)
+        public NubankCustomer(string Address_state, string Cpf, string Email, 
+                              string Address_postcode, string Billing_address_line1,
+                              string Billing_address_state, NubankDevices[] Devices)
         {
 
             address_state = Address_state;

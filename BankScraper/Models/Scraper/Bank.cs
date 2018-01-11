@@ -1,5 +1,5 @@
 ﻿using System;
-namespace BankScraper.Models
+namespace BankScraper.Models.Scraper
 {
     public class Bank
     {

@@ -23,14 +23,16 @@
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Controllers\" />
-    <Folder Include="Controllers\IntegratedBanks\" />
+    <Folder Include="Controllers\Banks\" />
     <Folder Include="Interfaces\" />
     <Folder Include="Models\Nubank\" />
     <Folder Include="Models\Scraper\" />
-    <Folder Include="Controllers\IntegratedBanks\Nubank\" />
+    <Folder Include="Controllers\Banks\Nubank\" />
+    <Folder Include="Models\Comum\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Pages\ValuesController.cs" />
+    <Compile Remove="Models\Scraper\AccountContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="Pages\Index2.cshtml" />

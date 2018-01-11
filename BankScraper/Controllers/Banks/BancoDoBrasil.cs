@@ -2,7 +2,8 @@
 //https://github.com/AndreCGusmao/bankscraper
 //
 using System;
-using BankScraper.Models;
+using BankScraper.Models.Comum;
+using BankScraper.Models.Scraper;
 using BankScraper.Controllers.IntegratedBanks;
 
 

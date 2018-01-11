@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using BankScraper.Models;
 using BankScraper.Models.Scraper;
 
-namespace BankScraper.Models
+namespace BankScraper.Models.Scraper
 {
     /// <summary>
     /// Account.
@@ -21,7 +21,7 @@ namespace BankScraper.Models
         public string number { get; set; }
         public string status { get; set; }
         public string owner { get; set; }
-        public List<Events> transactions{ get; set; }
+        public List<Events> events{ get; set; }
         public List<Purchase> purchase { get; set; }
         public string currency { get; set; }
         public string overdraft { get; set; }
@@ -32,6 +32,7 @@ namespace BankScraper.Models
         /// </summary>
         public Account(){}
 
+       
         /// <summary>
         /// Initializes a new instance of the <see cref="T:BankScraper.Models.Account"/> class.
         /// </summary>
@@ -43,13 +44,14 @@ namespace BankScraper.Models
         /// <param name="Number">Number.</param>
         /// <param name="Status">Status.</param>
         /// <param name="Owner">Owner.</param>
-        /// <param name="Transactions">Transactions.</param>
+        /// <param name="Events">Events.</param>
+        /// <param name="Purchase">Purchase.</param>
         /// <param name="Currency">Currency.</param>
         /// <param name="Overdraft">Overdraft.</param>
         /// <param name="Interest">Interest.</param>
         public Account(string Bank, string Cpf, string Branch, string Password, 
                        string Personal_credit, string Number, string Status, 
-                       string Owner, List<Events> Transactions, 
+                       string Owner, List<Events> Events, List<Purchase> Purchase, 
                        string Currency, string Overdraft, string Interest){
 
             bank = Bank;
@@ -60,7 +62,8 @@ namespace BankScraper.Models
             number = Number;
             status = Status;
             owner = Owner;
-            transactions = Transactions;
+            purchase = Purchase;
+            events = Events;
             currency = Currency;
             overdraft = Overdraft;
             interest = Interest;

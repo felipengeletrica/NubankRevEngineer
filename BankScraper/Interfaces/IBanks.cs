@@ -1,5 +1,6 @@
 ﻿using System;
-using BankScraper.Models;
+using BankScraper.Models.Comum;
+using BankScraper.Models.Scraper;
 
 namespace BankScraper.Controllers.IntegratedBanks
 {

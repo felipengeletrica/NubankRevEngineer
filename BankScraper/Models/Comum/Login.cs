@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace BankScraper.Models
+namespace BankScraper.Models.Comum
 {
 
     /// <summary>

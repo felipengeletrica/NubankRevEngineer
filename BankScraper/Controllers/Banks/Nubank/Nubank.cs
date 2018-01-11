@@ -14,6 +14,9 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Diagnostics;
+using BankScraper.Models.Scraper;
+using BankScraper.Models.Comum;
+using BankScraper.Models.Nubank;
 
 namespace BankScraper.Controllers.IntegratedBanks
 {
@@ -97,12 +100,21 @@ namespace BankScraper.Controllers.IntegratedBanks
             JToken _events = jevents["events"];
             JToken _as_of = jevents["as_of"];
 
+            //*************** Costumer ***************************
+            JToken _customer = customer["printed_name"];
+
+            //Transactions
+            JToken _purchases = purchases["transactions"];
+
+
+            //var customer_name = (from s in _customer where s["printed_name"] != null select s["printed_name"]).ToList();
+
         
             //get JSON events results
             //get objects into a list
             IList<JToken> events = _events.Children().ToList();
             //Serialize JSON results into .NET objects 
-            List<Events> nubank_events = new List<Events>();
+            List<NuEvents> nubank_events = new List<Events>();
 
             foreach (JToken ev in events)
             {
