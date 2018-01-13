@@ -21,32 +21,36 @@ namespace BankScraper.Models.Scraper
         public List<Events> events{ get; set; }
         public List<Purchase> purchase { get; set; }
         public Customer customer { get; set; }
+        BillsSummary billsSummary { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="T:BankScraper.Models.Account"/> class.
         /// </summary>
         public Account(){}
 
        
-        /// <summary>
-        /// Initializes a new instance of the <see cref="T:BankScraper.Models.Account"/> class.
-        /// </summary>
-        /// <param name="Bank">Bank.</param>
-        /// <param name="Branch">Branch.</param>
-        /// <param name="Password">Password.</param>
-        /// <param name="Number">Number.</param>
-        /// <param name="Status">Status.</param>
-        /// <param name="Owner">Owner.</param>
-        /// <param name="Events">Events.</param>
-        /// <param name="Purchase">Purchase.</param>
+       /// <summary>
+       /// Initializes a new instance of the <see cref="T:BankScraper.Models.Scraper.Account"/> class.
+       /// </summary>
+       /// <param name="Bank">Bank.</param>
+       /// <param name="Branch">Branch.</param>
+       /// <param name="Password">Password.</param>
+       /// <param name="Number">Number.</param>
+       /// <param name="Status">Status.</param>
+       /// <param name="Events">Events.</param>
+       /// <param name="Purchase">Purchase.</param>
+       /// <param name="Customer">Customer.</param>
+       /// <param name="BillsSummary">Bills summary.</param>
         public Account(
             string Bank, 
             string Branch, 
             string Password, 
             string Number, 
             string Status, 
-            string Owner, 
             List<Events> Events, 
-            List<Purchase> Purchase)
+            List<Purchase> Purchase,
+            Customer Customer,
+            BillsSummary BillsSummary
+            )
         {
 
             bank = Bank;
@@ -56,6 +60,8 @@ namespace BankScraper.Models.Scraper
             status = Status;
             purchase = Purchase;
             events = Events;
+            customer = Customer;
+            billsSummary = BillsSummary;
         }
 
     }
