@@ -25,9 +25,11 @@ namespace BankScraper.Models.Scraper
         /// <summary>
         /// Initializes a new instance of the <see cref="T:BankScraper.Models.Account"/> class.
         /// </summary>
-        public Account(){}
+        public Account()
+        {
+            
+        }
 
-       
        /// <summary>
        /// Initializes a new instance of the <see cref="T:BankScraper.Models.Scraper.Account"/> class.
        /// </summary>
