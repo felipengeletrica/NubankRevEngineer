@@ -17,7 +17,6 @@ namespace BankScraper.Controllers.Banks.Template
         {
 
             Account account = new Account() {};
-
             Customer customer = new Customer();
             Purchase purchase = new Purchase();
             BillsSummary billsSummary = new BillsSummary();
@@ -25,14 +24,12 @@ namespace BankScraper.Controllers.Banks.Template
             List<Events> events = new List<Events>() { };
             List<Purchase> purchases = new List<Purchase>();
 
-
-
-
             try
             {
                 //########### Account info ####################################
                 account.bank = login.bank;
                 account.number = login.account_number;
+                account.branch = login.account_agency;
 
                 //############ Customer info ##################################
                 customer.address_state  = "Nuremberg";
@@ -150,8 +147,6 @@ namespace BankScraper.Controllers.Banks.Template
                     timestamp = DateTime.Now.ToString(),
                     currency = "EUR"
                 });
-
-
                 //Add to account
                 account.events = events;
                 account.purchase = purchases;
