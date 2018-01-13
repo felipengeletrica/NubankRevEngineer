@@ -103,7 +103,6 @@ namespace BankScraper.Controllers.Banks.Template
                 events.Add(new Events()
                 {
                     id = "1",
-                    name = "Payment",
                     category = "Bank deposit",
                     title = "Canon in d paymento music",
                     amount = "1500,00",
@@ -114,7 +113,6 @@ namespace BankScraper.Controllers.Banks.Template
                 events.Add(new Events()
                 {
                     id = "2",
-                    name = "Payment",
                     category = "Bank deposit",
                     title = "Canon in d paymento music",
                     amount = "15000,00",
@@ -126,7 +124,6 @@ namespace BankScraper.Controllers.Banks.Template
                 events.Add(new Events()
                 {
                     id = "2",
-                    name = "Payment",
                     category = "Bank deposit",
                     title = "Canon in d paymento music",
                     amount = "150000,00",
