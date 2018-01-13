@@ -22,7 +22,7 @@
     <br>
     <form id="my-form" method="post">
         <div class="col-xs-4">
-            Selecione o Banco
+            Select bank
             <select class="form-control" id="BankSelect">
                 @{
                 foreach(var bank in Model.banks){
@@ -33,17 +33,17 @@
             </div>
             <div>
             <label>
-            Agência:
+            Agency:
                 <input type="text" class="form-control" asp-for="login.account_agency"/>
                 <span asp-validation-for="login.account_agency" ></span>
             </label>
             <label>
-            Conta corrente:
+            Account number or CPF:
                 <input type="text" class="form-control"  asp-for="login.account_number"/>
                 <span asp-validation-for="login.account_number" ></span>
             </label>
             <label>
-            Senha: 
+            Password: 
                 <input class="form-control" asp-for="login.password" type="password"/>
                 <span asp-validation-for="login.password" ></span>
             </label>
@@ -55,52 +55,128 @@
     </form>
     <br>
     <br>
-    <h3> Dados coletados: </h3>
+    <h3> Collected data: </h3>
+    
     <table class="table">
         <thead>
+            <tr><th><h4> Account informations: </h4> <th> <h3></h3></th></tr>
             <tr>
-                <th>Descrição:<th>Informações:</th>
+                <th>Description:<th>Informations:</th>
             </tr>
 @{
+            //Account informations
             if(Model.account != null)
             {
-                <tr><th>Banco<th>@Model.account.bank</th></tr>
-                <tr><th>Número da conta:<th>@Model.account.number</th></tr>
-                <tr><th>Usuário:<th>@Model.account.owner</th></tr>
-                <tr><th>Moeda:<th>@Model.account.currency</th></tr>
-                <tr><th>Crédito:<th>@Model.account.personal_credit</th></tr>
+                <tr><th>Bank<th>@Model.account.bank</th></tr>
+                <tr><th>Account number:<th>@Model.account.number</th></tr>
+                <!--<tr><th>User:<th>@Model.account.customer.name</th></tr>
+                <tr><th>Crédito:<th>@Model.account.customer.personal_credit</th></tr>-->
 
-
-            if(Model.account.purchase != null)
+             //Customer
+            Customer customer = @Model.account.customer;
+            if(customer != null)
                 {
-                    <tr><th><h3> Trasações:</h3> <th> <h3></h3></th></tr>
-                    foreach (Purchase purchase in @Model.account.purchase)
+                <tr><th><h4> Customer informations: </h4> <th> <h3></h3></th></tr>
+                <tr><th>Address state:<th>@customer.address_state</th></tr>
+                <tr><th>CPF:<th>@customer.cpf</th></tr>
+                <tr><th>email:<th>@customer.email</th></tr>
+                <tr><th>Address postcode:<th>@customer.address_postcode</th></tr>
+                <tr><th>Billing address:<th>@customer.billing_address_line1</th></tr>
+                <tr><th>Billing address state:<th>@customer.billing_address_state</th></tr>
+                <tr><th>Address number:<th>@customer.address_number</th></tr>
+                <tr><th>Billing address city:<th>@customer.billing_address_city</th></tr>
+                <tr><th>Phone:<th>@customer.phone</th></tr>
+                <tr><th>Billing Address Locality:<th>@customer.billing_address_locality</th></tr>
+                <tr><th>Name:<th>@customer.name</th></tr>
+                <tr><th>Nationality:<th>@customer.nationality</th></tr>
+                <tr><th>Billing address:<th>@customer.billing_address_line2</th></tr>
+                <tr><th>Printed name:<th>@customer.printed_name</th></tr>
+                <tr><th>Preferred name:<th>@customer.preferred_name</th></tr>
+                <tr><th>Address country:<th>@customer.address_country</th></tr>
+                <tr><th>Address additional:<th>@customer.address_line2</th></tr>
+                <tr><th>Billing address postcode:<th>@customer.billing_address_postcode</th></tr>
+                <tr><th>Born Date:<th>@customer.dob</th></tr>
+                <tr><th>id:<th>@customer.id</th></tr>
+                <tr><th>Address locality:<th>@customer.address_locality</th></tr>
+                <tr><th>Marital status:<th>@customer.marital_status</th></tr>
+                <tr><th>Billing address country:<th>@customer.billing_address_country</th></tr>
+                <tr><th>Address line:<th>@customer.address_line1</th></tr>
+                <tr><th>Gender:<th>@customer.gender</th></tr>
+                <tr><th>Billing address number:<th>@customer.billing_address_number</th></tr>
+                <tr><th>Reported income:<th>@customer.reported_income</th></tr>
+                <tr><th>Mothers name:<th>@customer.mothers_name</th></tr>
+                <tr><th>Invitations:<th>@customer.invitations</th></tr>
+                <tr><th>Address city:<th>@customer.address_city</th></tr>
+                <tr><th><th></th></tr>
+                    
+            }
+
+             //Bills Summary
+            BillsSummary billsSummary = @Model.account.billsSummary;
+            if(billsSummary != null)
+                {
+                <tr><th><h4> Bills Summary:</h4> <th> <h3></h3></th></tr>
+                <tr><th>Payments:<th>@billsSummary.payments</th></tr>
+                <tr><th>Interest charge:<th>@billsSummary.interest_charge</th></tr>
+                <tr><th>Total international:<th>@billsSummary.total_international</th></tr>
+                <tr><th>Precise minimum payment:<th>@billsSummary.precise_minimum_payment</th></tr>
+                <tr><th>Interest reversal:<th>@billsSummary.interest_reversal</th></tr>
+                <tr><th>Close date:<th>@billsSummary.close_date</th></tr>
+                <tr><th>Total credits:<th>@billsSummary.total_credits</th></tr>
+                <tr><th>Past balance:<th>@billsSummary.past_balance</th></tr>
+                <tr><th>Effective due date:<th>@billsSummary.effective_due_date</th></tr>
+                <tr><th>International tax:<th>@billsSummary.international_tax</th></tr>
+                <tr><th>Tax:<th>@billsSummary.tax</th></tr>
+                <tr><th>Adjustments:<th>@billsSummary.adjustments</th></tr>
+                <tr><th>Precise total balance:<th>@billsSummary.precise_total_balance</th></tr>
+                <tr><th>Total financed:<th>@billsSummary.total_financed</th></tr>
+                <tr><th>Total balance:<th>@billsSummary.total_balance</th></tr>
+                <tr><th>Interest rate:<th>@billsSummary.interest_rate</th></tr>
+                <tr><th>Total_national:<th>@billsSummary.total_national</th></tr>
+                <tr><th>Previous bill balance:<th>@billsSummary.previous_bill_balance</th></tr>
+                <tr><th>Interest:<th>@billsSummary.interest</th></tr>
+                <tr><th>Total cumulative:<th>@billsSummary.total_cumulative</th></tr>
+                <tr><th>Paid:<th>@billsSummary.paid</th></tr>
+                <tr><th>Fees:<th>@billsSummary.fees</th></tr>
+                <tr><th>Total payments:<th>@billsSummary.total_payments</th></tr>
+                <tr><th>Minimum payment:<th>@billsSummary.minimum_payment</th></tr>
+                <tr><th>Open date:<th>@billsSummary.open_date</th></tr>
+                <tr><th>Total accrued:<th>@billsSummary.total_accrued</th></tr>
+                <tr><th><th></th></tr>  
+                }
+
+             //Purchases
+            if(@Model.account.purchase != null)
+                {
+                    <tr><th><h4> Purchases:</h4> <th> <h3></h3></th></tr>
+                    foreach (Purchase _purchase in @Model.account.purchase)
                     {
-                        <tr><th>Id Transação:<th>@purchase.id</th></tr>
-                        <tr><th>Descrição:<th>@purchase.description</th></tr>
-                        <tr><th>Valor:<th>@purchase.value</th></tr>
-                        <tr><th>Data:<th>@purchase.timestamp</th></tr>
-                        <tr><th>Valor:<th>@purchase.currency</th></tr>
+                        <tr><th>Id Transação:<th>@_purchase.id</th></tr>
+                        <tr><th>Descrição:<th>@_purchase.description</th></tr>
+                        <tr><th>Valor:<th>@_purchase.value</th></tr>
+                        <tr><th>Data:<th>@_purchase.timestamp</th></tr>
+                        <tr><th>Valor:<th>@_purchase.currency</th></tr>
                         <tr><th><th></th></tr>
                     }
                 }
-     
-            if(Model.account.events != null)
+
+            //Events
+            if(@Model.account.events != null)
             {
-                <tr><th><h3> Eventos:</h3> <th> <h3></h3></th></tr>
-                foreach (Events evs in @Model.account.events)
+                <tr><th><h4> Eventos:</h4> <th> <h3></h3></th></tr>
+                foreach (Events _events in @Model.account.events)
                 {
-                    <tr><th>Id Transação:<th>@evs.id</th></tr>
-                    <tr><th>Nome:<th>@evs.name</th></tr>
-                    <tr><th>Título:<th>@evs.title</th></tr>
-                    <tr><th>Categoria:<th>@evs.category</th></tr>
-                    <tr><th>Data:<th>@evs.time</th></tr>
-                    <tr><th>Valor:<th>@evs.amount</th></tr>
-                    <tr><th>Mensagem:<th>@evs.message</th></tr>
+                    <tr><th>Id Transação:<th>@_events.id</th></tr>
+                    <tr><th>Nome:<th>@_events.name</th></tr>
+                    <tr><th>Título:<th>@_events.title</th></tr>
+                    <tr><th>Categoria:<th>@_events.category</th></tr>
+                    <tr><th>Data:<th>@_events.time</th></tr>
+                    <tr><th>Valor:<th>@_events.amount</th></tr>
+                    <tr><th>Mensagem:<th>@_events.message</th></tr>
                     <tr><th><th></th></tr>
                 }
-                }
-            }
+          }
+      }
 }
         </thead>
     </table>
