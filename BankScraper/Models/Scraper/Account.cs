@@ -21,7 +21,7 @@ namespace BankScraper.Models.Scraper
         public List<Events> events{ get; set; }
         public List<Purchase> purchase { get; set; }
         public Customer customer { get; set; }
-        BillsSummary billsSummary { get; set; }
+        public BillsSummary billsSummary { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="T:BankScraper.Models.Account"/> class.
         /// </summary>
