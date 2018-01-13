@@ -132,7 +132,7 @@
                 <tr><th>Total financed:<th>@billsSummary.total_financed</th></tr>
                 <tr><th>Total balance:<th>@billsSummary.total_balance</th></tr>
                 <tr><th>Interest rate:<th>@billsSummary.interest_rate</th></tr>
-                <tr><th>Totalnational:<th>@billsSummary.total_national</th></tr>
+                <tr><th>Total national:<th>@billsSummary.total_national</th></tr>
                 <tr><th>Previous bill balance:<th>@billsSummary.previous_bill_balance</th></tr>
                 <tr><th>Interest:<th>@billsSummary.interest</th></tr>
                 <tr><th>Total cumulative:<th>@billsSummary.total_cumulative</th></tr>
@@ -151,11 +151,11 @@
                     <tr><th><h4> Purchases:</h4> <th> <h3></h3></th></tr>
                     foreach (Purchase _purchase in @Model.account.purchase)
                     {
-                        <tr><th>Id Transação:<th>@_purchase.id</th></tr>
-                        <tr><th>Descrição:<th>@_purchase.description</th></tr>
-                        <tr><th>Valor:<th>@_purchase.value</th></tr>
+                        <tr><th>Id transactions:<th>@_purchase.id</th></tr>
+                        <tr><th>Description:<th>@_purchase.description</th></tr>
+                        <tr><th>Value:<th>@_purchase.value</th></tr>
                         <tr><th>Data:<th>@_purchase.timestamp</th></tr>
-                        <tr><th>Valor:<th>@_purchase.currency</th></tr>
+                        <tr><th>Currency:<th>@_purchase.currency</th></tr>
                         <tr><th><th></th></tr>
                     }
                 }
@@ -166,13 +166,13 @@
                 <tr><th><h4> Eventos:</h4> <th> <h3></h3></th></tr>
                 foreach (Events _events in @Model.account.events)
                 {
-                    <tr><th>Id Transação:<th>@_events.id</th></tr>
-                    <tr><th>Nome:<th>@_events.name</th></tr>
-                    <tr><th>Título:<th>@_events.title</th></tr>
-                    <tr><th>Categoria:<th>@_events.category</th></tr>
+                    <tr><th>Id transactions:<th>@_events.id</th></tr>
+                    <tr><th>Name:<th>@_events.name</th></tr>
+                    <tr><th>Title:<th>@_events.title</th></tr>
+                    <tr><th>Category:<th>@_events.category</th></tr>
                     <tr><th>Data:<th>@_events.time</th></tr>
-                    <tr><th>Valor:<th>@_events.amount</th></tr>
-                    <tr><th>Mensagem:<th>@_events.message</th></tr>
+                    <tr><th>Amount:<th>@_events.amount</th></tr>
+                    <tr><th>Menssage:<th>@_events.message</th></tr>
                     <tr><th><th></th></tr>
                 }
           }
