@@ -180,7 +180,7 @@ namespace BankScraper.Controllers.Banks.Nubank
                 limite_do_cartao = (card_amount / 100).ToString(".00");
             }
 
-            ////************** Bills summary ************************
+            //************** Bills summary ************************
             //account.billsSummary = new BillsSummary() { total_credits = limite_do_cartao };
 
 
