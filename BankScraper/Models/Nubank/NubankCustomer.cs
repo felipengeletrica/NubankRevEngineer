@@ -25,7 +25,7 @@ namespace BankScraper.Models.Nubank
         public string address_country { get; set; }
         public string address_line2 { get; set; }
         public string billing_address_postcode { get; set; }
-        public string[] documents { get; set; }
+        //public string[] documents { get; set; }
         public string dob { get; set; }
         public string id { get; set; }
         public string address_locality { get; set; }
@@ -40,6 +40,7 @@ namespace BankScraper.Models.Nubank
         public string mothers_name { get; set; }
         public string invitations { get; set; }
         public string address_city { get; set; }
+        public string personal_credit { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:NubankCustomer"/> class.
@@ -117,7 +118,7 @@ namespace BankScraper.Models.Nubank
             string Address_line1,
             string Gender,
             string Billing_address_number,
-            string[] _Links,
+            //string[] _Links,
             string Reported_income,
             string Mothers_name,
             string Invitations,
@@ -126,8 +127,8 @@ namespace BankScraper.Models.Nubank
             
             address_state = Address_state;
             cpf = Cpf;
-            email = email;
-            address_postcode = address_postcode;
+            email = Email;
+            address_postcode = Address_postcode;
             billing_address_line1 = Billing_address_line1;
             billing_address_state = Billing_address_state;
             //primary_device = Primary_device;
@@ -145,7 +146,7 @@ namespace BankScraper.Models.Nubank
             address_country = Address_country;
             address_line2 = Address_line2;
             billing_address_postcode = Billing_address_postcode;
-            documents = Documents;
+            //documents = Documents;
             dob = Dob;
             id = Id;
             address_locality = Address_locality;
