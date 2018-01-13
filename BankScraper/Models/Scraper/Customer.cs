@@ -40,6 +40,8 @@ namespace BankScraper.Models.Scraper
         public string mothers_name { get; set; }
         public string invitations { get; set; }
         public string address_city { get; set; }
+        public string personal_credit { get; set; }
+
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:NubankCustomer"/> class.
@@ -50,7 +52,7 @@ namespace BankScraper.Models.Scraper
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="T:NubankCustomer"/> class.
+        /// Initializes a new instance of the <see cref="T:BankScraper.Models.Scraper.Customer"/> class.
         /// </summary>
         /// <param name="Address_state">Address state.</param>
         /// <param name="Cpf">Cpf.</param>
@@ -80,11 +82,11 @@ namespace BankScraper.Models.Scraper
         /// <param name="Address_line1">Address line1.</param>
         /// <param name="Gender">Gender.</param>
         /// <param name="Billing_address_number">Billing address number.</param>
-        /// <param name="_Links">Links.</param>
         /// <param name="Reported_income">Reported income.</param>
         /// <param name="Mothers_name">Mothers name.</param>
         /// <param name="Invitations">Invitations.</param>
         /// <param name="Address_city">Address city.</param>
+        /// <param name="Personal_credit">Personal credit.</param>
         public Customer(
             string Address_state,
             string Cpf,
@@ -121,7 +123,8 @@ namespace BankScraper.Models.Scraper
             string Reported_income,
             string Mothers_name,
             string Invitations,
-            string Address_city)
+            string Address_city,
+            string Personal_credit)
         {
 
             address_state = Address_state;
@@ -160,6 +163,7 @@ namespace BankScraper.Models.Scraper
             mothers_name = Mothers_name;
             invitations = Invitations;
             address_city = Address_city;
+            personal_credit = Personal_credit;
         }
     }
 }
