@@ -7,12 +7,6 @@ namespace BankScraper.Models.Scraper
     /// </summary>
     public class Events
     {
-       
-        /// <summary>
-        /// Gets or sets the name.
-        /// </summary>
-        /// <value>The name.</value>
-        public string name { get; set; }
         public string category { get; set; }
         public string title { get; set; }
         public string amount { get; set; }
@@ -35,9 +29,8 @@ namespace BankScraper.Models.Scraper
         /// <param name="Time">Time.</param>
         /// <param name="Message">Message.</param>
         /// <param name="Id">Identifier.</param>
-        public Events(string Name, string Category, string Title, string Amount, string Time, string Message, string Id)
+        public Events(string Category, string Title, string Amount, string Time, string Message, string Id)
         {
-            name = Name;
             category = Category;
             title = Title;
             amount = Amount;
