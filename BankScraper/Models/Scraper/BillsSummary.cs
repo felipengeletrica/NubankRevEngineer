@@ -76,35 +76,38 @@ namespace BankScraper.Models.Scraper
         /// <param name="Minimum_payment">Minimum payment.</param>
         /// <param name="Open_date">Open date.</param>
         /// <param name="Total_accrued">Total accrued.</param>
-        public BillsSummary(
-        string Payments,
-        string Interest_charge,
-        string Total_international,
-        string Due_date,
-        string Precise_minimum_payment,
-        string Interest_reversal,
-        string Close_date,
-        string Expenses,
-        string Total_credits,
-        string Past_balance,
-        string Effective_due_date,
-        string International_tax,
-        string Tax,
-        string Adjustments,
-        string Precise_total_balance,
-        string Total_financed,
-        string Total_balance,
-        string Interest_rate,
-        string Total_national,
-        string Previous_bill_balance,
-        string Interest,
-        string Total_cumulative,
-        string Paid,
-        string Fees,
-        string Total_payments,
-        string Minimum_payment,
-        string Open_date,
-        string Total_accrued)
+       
+            public BillsSummary(
+            string Payments,
+            string Interest_charge,
+            string Total_international,
+            string Due_date,
+            string Precise_minimum_payment,
+            string Interest_reversal,
+            string Close_date,
+            string Expenses,
+            string Total_credits,
+            string Past_balance,
+            string Effective_due_date,
+            string International_tax,
+            string Tax,
+            string Adjustments,
+            string Precise_total_balance,
+            string Total_financed,
+            string Total_balance,
+            string Interest_rate,
+            string Total_national,
+            string Previous_bill_balance,
+            string Interest,
+            string Total_cumulative,
+            string Paid,
+            string Fees,
+            string Total_payments,
+            string Minimum_payment,
+            string Open_date,
+            string Total_accrued,
+            string Amount
+            )
         {
             payments = Payments;
             interest_charge = Interest_charge;
@@ -134,6 +137,11 @@ namespace BankScraper.Models.Scraper
             minimum_payment = Minimum_payment;
             open_date = Open_date;
             total_accrued = Total_accrued;
+        }
+
+        public static implicit operator string(BillsSummary v)
+        {
+            throw new NotImplementedException();
         }
     }
 }
