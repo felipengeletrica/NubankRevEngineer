@@ -40,7 +40,6 @@ namespace BankScraper.Models.Nubank
         public string mothers_name { get; set; }
         public string invitations { get; set; }
         public string address_city { get; set; }
-        public string personal_credit { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="T:NubankCustomer"/> class.
