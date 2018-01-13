@@ -69,6 +69,7 @@
             {
                 <tr><th>Bank<th>@Model.account.bank</th></tr>
                 <tr><th>Account number:<th>@Model.account.number</th></tr>
+                <tr><th>Agency:<th>@Model.account.branch</th></tr>
                 <!--<tr><th>User:<th>@Model.account.customer.name</th></tr>
                 <tr><th>Crédito:<th>@Model.account.customer.personal_credit</th></tr>-->
 
@@ -167,12 +168,11 @@
                 foreach (Events _events in @Model.account.events)
                 {
                     <tr><th>Id transactions:<th>@_events.id</th></tr>
-                    <tr><th>Name:<th>@_events.name</th></tr>
                     <tr><th>Title:<th>@_events.title</th></tr>
                     <tr><th>Category:<th>@_events.category</th></tr>
                     <tr><th>Data:<th>@_events.time</th></tr>
                     <tr><th>Amount:<th>@_events.amount</th></tr>
-                    <tr><th>Menssage:<th>@_events.message</th></tr>
+                    <tr><th>Message:<th>@_events.message</th></tr>
                     <tr><th><th></th></tr>
                 }
           }
