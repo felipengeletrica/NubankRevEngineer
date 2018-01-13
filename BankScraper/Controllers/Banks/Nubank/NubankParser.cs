@@ -152,7 +152,10 @@ namespace BankScraper.Controllers.Banks.Nubank
 
                 scraper_ev.category = nubank_event.category;
                 scraper_ev.title = nubank_event.title;
-                scraper_ev.amount = util.ConvertValue(nubank_event.amount);
+                if (nubank_event.amount != null)
+                {
+                    scraper_ev.amount = util.ConvertValue(nubank_event.amount);
+                }
                 scraper_ev.time = nubank_event.time;
                 scraper_ev.message = nubank_event.message;
                 scraper_ev.id = nubank_event.id;
