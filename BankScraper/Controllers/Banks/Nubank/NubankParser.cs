@@ -63,7 +63,6 @@ namespace BankScraper.Controllers.Banks.Nubank
             return account;
         }
 
-
         /// <summary>
         /// Nubanks process account.
         /// </summary>
@@ -151,7 +150,6 @@ namespace BankScraper.Controllers.Banks.Nubank
                 NubankEvents nubank_event = ev.ToObject<NubankEvents>();
                 Events scraper_ev = new Events();
 
-                scraper_ev.name = nubank_event.name;
                 scraper_ev.category = nubank_event.category;
                 scraper_ev.title = nubank_event.title;
                 scraper_ev.amount = util.ConvertValue(nubank_event.amount);
