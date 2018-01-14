@@ -11,9 +11,9 @@ This program is a web page built in C #, Razor, Mono and Nuget.
 ## Current Supported Banks
 
 
-| Name                                                                                                                                                                                          | Account informations | Customer informations          | Additional Info                                                                                       |                                | Status |
+| Name                                                                                                                                                                                          | Account informations | Customer informations          | Additional Info                                                                                       |           Method                     | Status |
 | ---                                                                                                                                                                                           | ---     | ---                                   | ---                                                                                                   | ---                                  | ---    |
-| [![Nubank](https://raw.githubusercontent.com/kamushadenes/bankscraper/master/bankscraper/logo/icon-nubank.png)](https://github.com/kamushadenes/bankscraper/blob/master/nubank.py)                    | yes      | yes                                     | Purchases, Bills Summamry, events                                                                       |                                     | OK    |
+| [![Nubank](https://raw.githubusercontent.com/kamushadenes/bankscraper/master/bankscraper/logo/icon-nubank.png)](https://github.com/kamushadenes/bankscraper/blob/master/nubank.py)                    | yes      | yes                                     | Purchases, Bills Summamry, events                                                                       |    Web Scraping                                  | OK    |
 
 
 
