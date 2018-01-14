@@ -21,3 +21,8 @@ This program is a web page built in C #, Razor, Mono and Nuget.
 
 To add new banks you need to add in the change the list of banks in the BankScraper.cs class and create a new bank class. 
 Check out template folser with example of how to use the software abstraction layer templates.
+
+
+##Thanks
+
+Based on the Python project from https://github.com/AndreCGusmao/bankscraper 
