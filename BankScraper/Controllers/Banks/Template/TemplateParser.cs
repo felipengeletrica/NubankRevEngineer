@@ -132,20 +132,22 @@ namespace BankScraper.Controllers.Banks.Template
                 //Account purchases
                 purchases.Add(new Purchase()
                 {
-                    id = "1",
-                    value = "700,00",
-                    description = "Amazon new smart watch Garmin Fenix 5",
-                    timestamp = DateTime.Now.ToString(),
-                    currency = "EUR"
+                    category = "1",
+                    amount = "700,00",
+                    precise_amount = "700,00",
+                    original_merchant_name = "Amazon new smart watch Garmin Fenix 5",
+                    time = DateTime.Now.ToString(),
+                    mcc = "EUR"
                 });
                 //Account purchases
                 purchases.Add(new Purchase()
                 {
-                    id = "2",
-                    value = "100,00",
-                    description = "Amazon Alexa home",
-                    timestamp = DateTime.Now.ToString(),
-                    currency = "EUR"
+                    category = "2",
+                    amount = "100,00",
+                    precise_amount = "100,00",
+                    original_merchant_name = "Amazon Alexa home",
+                    time = DateTime.Now.ToString(),
+                    mcc = "EUR"
                 });
                 //Add to account
                 account.events = events;
