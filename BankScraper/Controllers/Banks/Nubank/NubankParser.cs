@@ -78,7 +78,7 @@ namespace BankScraper.Controllers.Banks.Nubank
                 JObject jcustomer = new JObject();
                 JObject jpurchases = new JObject();
 
-                List<Purchase> purchase = new List<Purchase>();
+               // List<Purchase> purchase = new List<Purchase>();
 
 
             try
@@ -132,6 +132,33 @@ namespace BankScraper.Controllers.Banks.Nubank
 
                 //*************** Transaction Compras ******************************
                 JToken _purchases = jpurchases["transactions"];
+                IList<JToken> lpurchases = _purchases.Children().ToList();
+                List<Purchase> purchase = new List<Purchase>();
+
+                //Parser
+                foreach (JToken pur in lpurchases)
+                {
+                    NubankPurchase nPurchases = pur.ToObject<NubankPurchase>();
+                    Purchase spurchase = new Purchase();
+
+                    spurchase.amount = util.ConvertValue(nPurchases.amount);
+                    spurchase.approved_reasons = nPurchases.approved_reasons;
+                    spurchase.auth_code = nPurchases.auth_code;
+                    spurchase.category = nPurchases.category;
+                    spurchase.charges = nPurchases.charges;
+                    spurchase.country = nPurchases.country;
+                    spurchase.expires_on = nPurchases.expires_on;
+                    spurchase.mcc = nPurchases.mcc;
+                    spurchase.original_merchant_name = nPurchases.original_merchant_name;
+                    spurchase.precise_amount = nPurchases.precise_amount;
+                    spurchase.time = nPurchases.time;
+                    spurchase.time_wallclock = nPurchases.time_wallclock;
+                    spurchase.type = nPurchases.type;
+
+                    purchase.Add(spurchase);
+                }
+
+                account.purchase = purchase;
 
                 //**************** Events ******************************************
                 //Nodes tokens events
@@ -226,9 +253,6 @@ namespace BankScraper.Controllers.Banks.Nubank
                 billsSummary.open_date = nubankBillsSummary.open_date;
                 billsSummary.total_accrued = util.ConvertValue(nubankBillsSummary.total_accrued);
                 account.billsSummary = billsSummary;
-
-                //********** Purchases *********************************************
-                account.purchase = purchase;
 
             }
             catch (Exception e)
