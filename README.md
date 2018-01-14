@@ -10,8 +10,15 @@ Program web suite to parse financial transactions from brazilian bank and benefi
 
 ## Current Supported Banks
 
-Nubank: 
-Account, customer, bills summary and events.
+The banks below were added in the order they are listed
+
+
+| Name                                                                                                                                                                                          | Balance | Transaction Backlog in Days           | Additional Info                                                                                       | Method                               | Status |
+| ---                                                                                                                                                                                           | ---     | ---                                   | ---                                                                                                   | ---                                  | ---    |
+| Nubank  | Yes     | 7, 15, 30, 60, 90                     | Account Segment, Account Type, Owner Name, Owner Document, Owner          | OK     |
+
+
+
 
 ## Add new banks
 
