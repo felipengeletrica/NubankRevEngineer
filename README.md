@@ -2,26 +2,21 @@
 Program web suite to parse financial transactions from brazilian bank and benefit accounts.
 
 
-# C# Bankscraper 
+# C# Banckscraper this program is a web page built in C #, Razor, Mono and Nuget.
 
-Program web suite to parse financial transactions from brazilian bank and benefit accounts, including support (when applicable) for interest fees and overdraft limits, besides account metadata and account holder information, when available
 
 **WARNING:** Using this tool without care may lead to your bank account being blocked. Use at your own risk!
 
 ## Current Supported Banks
 
-The banks below:
 
-
-| Name                                                                                                                                                                                          |          | Additional Info                                                                                       | Method                               | Status |
+| Name                                                                                                                                                                                          | Account informations | Customer informations          | Additional Info                                                                                       |                                | Status |
 | ---                                                                                                                                                                                           | ---     | ---                                   | ---                                                                                                   | ---                                  | ---    |
-| Nubank  |                    | Account Segment, Account Type, Owner Name, Owner Document, Owner          | OK     |
-
+| [![Nubank](https://raw.githubusercontent.com/kamushadenes/bankscraper/master/bankscraper/logo/icon-nubank.png)](https://github.com/kamushadenes/bankscraper/blob/master/nubank.py)                    | yes      | yes                                     | Purchases, Bills Summamry, events                                                                       |                                     | OK    |
 
 
 
 ## Add new banks
 
 To add new banks you need to add in the change the list of banks in the BankScraper.cs class and create a new bank class. 
-Check out the Template.cs class with example of how to use the software abstraction layer templates.
-
+Check out template folser with example of how to use the software abstraction layer templates.
