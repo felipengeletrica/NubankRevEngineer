@@ -10,7 +10,7 @@ Program web suite to parse financial transactions from brazilian bank and benefi
 
 ## Current Supported Banks
 
-The banks below were added in the order they are listed
+The banks below:
 
 
 | Name                                                                                                                                                                                          | Balance | Transaction Backlog in Days           | Additional Info                                                                                       | Method                               | Status |
