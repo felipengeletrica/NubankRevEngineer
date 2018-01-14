@@ -149,11 +149,28 @@
                     <tr><th><h4> Purchases:</h4> <th> <h3></h3></th></tr>
                     foreach (Purchase _purchase in @Model.account.purchase)
                     {
-                        <tr><th>Id transactions:<th>@_purchase.id</th></tr>
-                        <tr><th>Description:<th>@_purchase.description</th></tr>
-                        <tr><th>Value:<th>@_purchase.value</th></tr>
-                        <tr><th>Data:<th>@_purchase.timestamp</th></tr>
-                        <tr><th>Currency:<th>@_purchase.currency</th></tr>
+                        <tr><th>Category:<th>@_purchase.category</th></tr>
+                        <tr><th>Amount:<th>@_purchase.amount</th></tr>
+                        <tr><th>Precise_amount:<th>@_purchase.precise_amount</th></tr>
+                        <tr><th>Time:<th>@_purchase.time</th></tr>
+
+
+                        <tr><th>Charges:<th>@_purchase.charges</th></tr>
+                        <tr><th>Original merchant name:<th>@_purchase.original_merchant_name</th></tr>
+                        <tr><th>Type:<th>@_purchase.amount</th></tr>
+                        <tr><th>Mcc:<th>@_purchase.mcc</th></tr>
+                        if(@_purchase.approved_reasons != null)
+                        {
+                            foreach(string approv in @_purchase.approved_reasons)
+                            {
+                                <tr><th>Approved reasons:<th>@approv</th></tr>
+                            }
+                        }
+
+                        <tr><th>Expires on:<th>@_purchase.expires_on</th></tr>
+                        <tr><th>Auth code:<th>@_purchase.auth_code</th></tr>
+                        <tr><th>Country:<th>@_purchase.country</th></tr>
+                        <tr><th>Time wallclock:<th>@_purchase.time_wallclock</th></tr>
                         <tr><th><th></th></tr>
                     }
                 }
