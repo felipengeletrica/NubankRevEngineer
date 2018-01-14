@@ -13,9 +13,9 @@ Program web suite to parse financial transactions from brazilian bank and benefi
 The banks below:
 
 
-| Name                                                                                                                                                                                          | Balance | Transaction Backlog in Days           | Additional Info                                                                                       | Method                               | Status |
+| Name                                                                                                                                                                                          |          | Additional Info                                                                                       | Method                               | Status |
 | ---                                                                                                                                                                                           | ---     | ---                                   | ---                                                                                                   | ---                                  | ---    |
-| Nubank  | Yes     | 7, 15, 30, 60, 90                     | Account Segment, Account Type, Owner Name, Owner Document, Owner          | OK     |
+| Nubank  |                    | Account Segment, Account Type, Owner Name, Owner Document, Owner          | OK     |
 
 
 
