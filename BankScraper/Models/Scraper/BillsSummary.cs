@@ -105,7 +105,7 @@ namespace BankScraper.Models.Scraper
             string Total_payments,
             string Minimum_payment,
             string Open_date,
-            string Total_accrued,
+            string Total_accrued
             )
         {
             payments = Payments;

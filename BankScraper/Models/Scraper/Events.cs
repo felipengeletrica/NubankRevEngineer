@@ -22,7 +22,6 @@ namespace BankScraper.Models.Scraper
         /// <summary>
         /// Initializes a new instance of the <see cref="T:BankScraper.Models.Events"/> class.
         /// </summary>
-        /// <param name="Name">Name.</param>
         /// <param name="Category">Category.</param>
         /// <param name="Title">Title.</param>
         /// <param name="Amount">Amount.</param>
