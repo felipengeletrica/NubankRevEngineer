@@ -64,9 +64,8 @@ namespace BankScraper.Controllers
                 Banks = new TemplateParser();
             }else
             {
-                throw new Exception("Option not implemented");
+                throw new Exception("BANK SELECT - Option not implemented");
             }
-
             try
             {
                 //Get info accounts 
