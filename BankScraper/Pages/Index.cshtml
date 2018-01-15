@@ -69,7 +69,10 @@
             {
                 <tr><th>Bank<th>@Model.account.bank</th></tr>
                 <tr><th>Account:<th>@Model.account.number</th></tr>
+                if(@Model.account.branch != null)
+                {
                 <tr><th>Agency (Branch):<th>@Model.account.branch</th></tr>
+                }
              //Customer
             Customer customer = @Model.account.customer;
             if(customer != null)
@@ -151,7 +154,7 @@
                     {
                         <tr><th>Category:<th>@_purchase.category</th></tr>
                         <tr><th>Amount:<th>@_purchase.amount</th></tr>
-                        <tr><th>Precise_amount:<th>@_purchase.precise_amount</th></tr>
+                        <tr><th>Precise amount:<th>@_purchase.precise_amount</th></tr>
                         <tr><th>Time:<th>@_purchase.time</th></tr>
 
 
@@ -170,7 +173,7 @@
                         <tr><th>Expires on:<th>@_purchase.expires_on</th></tr>
                         <tr><th>Auth code:<th>@_purchase.auth_code</th></tr>
                         <tr><th>Country:<th>@_purchase.country</th></tr>
-                        <tr><th>Time wallclock:<th>@_purchase.time_wallclock</th></tr>
+                        <tr><th>Localtime:<th>@_purchase.time_wallclock</th></tr>
                         <tr><th><th></th></tr>
                     }
                 }
