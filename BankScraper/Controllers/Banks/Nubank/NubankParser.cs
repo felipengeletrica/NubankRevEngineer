@@ -13,7 +13,7 @@ using System.Diagnostics;
 using BankScraper.Models.Scraper;
 using BankScraper.Models.Comum;
 using BankScraper.Models.Nubank;
-
+using System.Globalization;
 
 namespace BankScraper.Controllers.Banks.Nubank
 {
@@ -119,7 +119,7 @@ namespace BankScraper.Controllers.Banks.Nubank
                 customer.address_line1 = nubankCustomer.address_line1;
                 customer.gender = nubankCustomer.gender;
                 customer.billing_address_number = nubankCustomer.billing_address_number;
-                customer.reported_income = nubankCustomer.reported_income;
+                customer.reported_income = util.ConvertValue(nubankCustomer.reported_income, 1);
                 customer.mothers_name = nubankCustomer.mothers_name;
                 customer.invitations = nubankCustomer.invitations;
                 customer.address_city = nubankCustomer.address_city;
@@ -147,7 +147,7 @@ namespace BankScraper.Controllers.Banks.Nubank
                     spurchase.expires_on = nPurchases.expires_on;
                     spurchase.mcc = nPurchases.mcc;
                     spurchase.original_merchant_name = nPurchases.original_merchant_name;
-                    spurchase.precise_amount = nPurchases.precise_amount;
+                    spurchase.precise_amount = util.ConvertValue(nPurchases.precise_amount, 1);
                     spurchase.time = nPurchases.time;
                     spurchase.time_wallclock = nPurchases.time_wallclock;
                     spurchase.type = nPurchases.type;
@@ -235,9 +235,9 @@ namespace BankScraper.Controllers.Banks.Nubank
                 billsSummary.international_tax = util.ConvertValue(nubankBillsSummary.international_tax);
                 billsSummary.tax = util.ConvertValue(nubankBillsSummary.tax);
                 billsSummary.adjustments = util.ConvertValue(nubankBillsSummary.adjustments);
-                billsSummary.precise_total_balance = nubankBillsSummary.precise_total_balance;
+                billsSummary.precise_total_balance = util.ConvertValue(nubankBillsSummary.precise_total_balance, 1);
                 billsSummary.total_financed = util.ConvertValue(nubankBillsSummary.total_financed);
-                billsSummary.total_balance = nubankBillsSummary.total_balance;
+                billsSummary.total_balance = util.ConvertValue(nubankBillsSummary.total_balance);
                 billsSummary.interest_rate = nubankBillsSummary.interest_rate;
                 billsSummary.total_national = util.ConvertValue(nubankBillsSummary.total_national);
                 billsSummary.previous_bill_balance = util.ConvertValue(nubankBillsSummary.previous_bill_balance);
