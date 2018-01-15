@@ -9,9 +9,9 @@ namespace BankScraper.Controllers
         /// </summary>
         /// <returns>The value.</returns>
         /// <param name="value">Value.</param>
-        public string ConvertValue(string value)
+        public string ConvertValue(string value, int Divide = 100, string format = "0.00")
         {
-            return (Convert.ToInt64(value) / 100).ToString("0.00");
+            return (Convert.ToInt64(value) / Divide).ToString(format);
         }
 
         /// <summary>
