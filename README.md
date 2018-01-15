@@ -10,6 +10,8 @@ This program is a web page built in C #, Razor, Mono and Nuget.
 
 ## Current Supported Banks
 
+Nubank Brazil
+
 
 | Name                                                                                                                                                                                          | Account informations | Customer informations          | Additional Info                                                                                       |           Method                     | Status |
 | ---                                                                                                                                                                                           | ---     | ---                                   | ---                                                                                                   | ---                                  | ---    |
