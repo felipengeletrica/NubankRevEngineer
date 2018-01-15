@@ -35,7 +35,7 @@ namespace BankScraper.Controllers.Banks.Nubank
         public Account GetAccount(Login login)
         {
             //Scrapers abstraction 
-            Account account = new Account() {};
+            Account account = new Account() { };
 
             try
             {
@@ -55,7 +55,6 @@ namespace BankScraper.Controllers.Banks.Nubank
                 nubank.disconnect();
             }
 
-
             //Account info
             account.bank = login.bank;
             account.number = login.account_number;
@@ -69,18 +68,16 @@ namespace BankScraper.Controllers.Banks.Nubank
         /// </summary>
         /// <returns>The to account.</returns>
         private Account NubankToAccount()
-            {
+        {
 
-                //Scrapers abstraction 
-                Account account = new Account();
-                JObject jevents = new JObject();
-                JObject jbills = new JObject();
-                JObject jcustomer = new JObject();
-                JObject jpurchases = new JObject();
+            //Scrapers abstraction 
+            Account account = new Account();
+            JObject jevents = new JObject();
+            JObject jbills = new JObject();
+            JObject jcustomer = new JObject();
+            JObject jpurchases = new JObject();
 
-               // List<Purchase> purchase = new List<Purchase>();
-
-
+            // List<Purchase> purchase = new List<Purchase>();
             try
             {
 
@@ -262,7 +259,5 @@ namespace BankScraper.Controllers.Banks.Nubank
 
             return account;
         }
-
-
     }
 }
