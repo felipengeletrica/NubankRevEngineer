@@ -106,7 +106,6 @@ namespace BankScraper.Models.Scraper
             string Minimum_payment,
             string Open_date,
             string Total_accrued,
-            string Amount
             )
         {
             payments = Payments;
@@ -137,11 +136,6 @@ namespace BankScraper.Models.Scraper
             minimum_payment = Minimum_payment;
             open_date = Open_date;
             total_accrued = Total_accrued;
-        }
-
-        public static implicit operator string(BillsSummary v)
-        {
-            throw new NotImplementedException();
         }
     }
 }

@@ -73,7 +73,7 @@ namespace BankScraper.Models.Scraper
         /// <param name="Address_line2">Address line2.</param>
         /// <param name="Billing_address_postcode">Billing address postcode.</param>
         /// <param name="Documents">Documents.</param>
-        /// <param name="Dob (Date on Born)">Dob.</param>
+        /// <param name="dob (Date on Born)">Dob.</param>
         /// <param name="Id">Identifier.</param>
         /// <param name="Address_locality">Address locality.</param>
         /// <param name="Marital_status">Marital status.</param>
@@ -109,13 +109,13 @@ namespace BankScraper.Models.Scraper
             string Address_country,
             string Address_line2,
             string Billing_address_postcode,
-            string[] Documents,
+            //string[] Documents,
             string Dob,
             string Id,
             string Address_locality,
             string Marital_status,
             string Billing_address_country,
-            string[] Devices,
+            //string[] Devices,
             string Address_line1,
             string Gender,
             string Billing_address_number,
