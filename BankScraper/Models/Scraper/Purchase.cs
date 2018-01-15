@@ -3,10 +3,7 @@ namespace BankScraper.Models.Scraper
 {
     public class Purchase
     {
-        /// <summary>
-        /// Gets or sets the category.
-        /// </summary>
-        /// <value>The category.</value>
+        /// Basics informations
         public string category { get; set; }
         public string amount { get; set; }
         public string precise_amount { get; set; }
