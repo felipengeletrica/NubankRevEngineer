@@ -37,6 +37,7 @@ namespace BankScraper.Controllers.Banks.Nubank
             "reconhecimentoVoz=false|resolucao=1080_1776|densidade=3.0|";
         
         private CookieContainer cookies = new CookieContainer();
+        private bool StatusGetToken = false;
 
         //Utils
         Utils util = new Utils();
@@ -50,6 +51,7 @@ namespace BankScraper.Controllers.Banks.Nubank
         {
 
             bool status = false;
+            StatusGetToken = false;
             string json = String.Empty;
 
             try
@@ -94,6 +96,7 @@ namespace BankScraper.Controllers.Banks.Nubank
                 //Parser to JSON.
                 JNubankToken = JObject.Parse(responseString);
                 status = true;
+                StatusGetToken = true;
 
             }
             catch (Exception e)
@@ -120,7 +123,11 @@ namespace BankScraper.Controllers.Banks.Nubank
         /// <param name="access_feed">Access feed.</param>
         private JObject getJsonData(JToken access_feed)
         {
+
             JObject JNubank = new JObject();
+
+            if (!StatusGetToken)
+                throw new Exception("First connect");
 
             try
             {
@@ -175,8 +182,7 @@ namespace BankScraper.Controllers.Banks.Nubank
         public JObject getEvents()
         {
             JObject JNubankEvents = new JObject();
-            if (JNubankToken.Count < 1)
-                throw new Exception("First connect");
+           
             //Events 
             JToken access_feed = JNubankToken["_links"]["events"]["href"];
             try
@@ -197,7 +203,7 @@ namespace BankScraper.Controllers.Banks.Nubank
         /// <returns>The bills summary.</returns>
         public JObject getBillsSummary()
         {
-
+            
             JObject JNubankBills = new JObject();
             //bills_summary
             JToken access_feed = JNubankToken["_links"]["bills_summary"]["href"];
@@ -219,6 +225,7 @@ namespace BankScraper.Controllers.Banks.Nubank
         /// <returns>The customer.</returns>
         public JObject getCustomer()
         {
+            
             JObject JNubank = new JObject();
             //bills_summary
             JToken access_feed = JNubankToken["_links"]["customer"]["href"];
@@ -240,7 +247,7 @@ namespace BankScraper.Controllers.Banks.Nubank
         /// <returns>The purchases.</returns>
         public JObject getPurchases()
         {
-
+            
             JObject JNubank = new JObject();
             //bills_summary
             JToken access_feed = JNubankToken["_links"]["purchases"]["href"];
