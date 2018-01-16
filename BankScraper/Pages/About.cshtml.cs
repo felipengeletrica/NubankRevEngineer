@@ -15,7 +15,7 @@ namespace BankScraper.Pages
         {
             Message = "Web Bank scraps";
             Explanation = "Programa para captura de dados bancários automaizados Web Scraper. Para verificar seus saldos entre na";
-            Explanation += " pagína pricipal \"Home\" e digite seus dados bancários solicitados.";
+            Explanation += " pagína principal \"Home\" e digite seus dados bancários solicitados.";
         }
     }
 }
