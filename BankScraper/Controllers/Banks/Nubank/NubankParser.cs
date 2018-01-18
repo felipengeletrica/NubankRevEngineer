@@ -127,35 +127,46 @@ namespace BankScraper.Controllers.Banks.Nubank
                 //Add in account
                 account.customer = customer;
 
-                //*************** Transaction Compras ******************************
-                JToken _purchases = jpurchases["transactions"];
-                IList<JToken> lpurchases = _purchases.Children().ToList();
-                List<Purchase> purchase = new List<Purchase>();
 
-                //Parser
-                foreach (JToken pur in lpurchases)
+                try
                 {
-                    NubankPurchase nPurchases = pur.ToObject<NubankPurchase>();
-                    Purchase spurchase = new Purchase();
 
-                    spurchase.amount = util.ConvertValue(nPurchases.amount);
-                    spurchase.approved_reasons = nPurchases.approved_reasons;
-                    spurchase.auth_code = nPurchases.auth_code;
-                    spurchase.category = nPurchases.category;
-                    spurchase.charges = nPurchases.charges;
-                    spurchase.country = nPurchases.country;
-                    spurchase.expires_on = nPurchases.expires_on;
-                    spurchase.mcc = nPurchases.mcc;
-                    spurchase.original_merchant_name = nPurchases.original_merchant_name;
-                    spurchase.precise_amount = util.ConvertValue(nPurchases.precise_amount, 1);
-                    spurchase.time = nPurchases.time;
-                    spurchase.time_wallclock = nPurchases.time_wallclock;
-                    spurchase.type = nPurchases.type;
+                    //*************** Transaction Compras ******************************
+                    JToken _purchases = jpurchases["transactions"];
+                    IList<JToken> lpurchases = _purchases.Children().ToList();
+                    List<Purchase> purchase = new List<Purchase>();
 
-                    purchase.Add(spurchase);
+                    //Parser
+                    foreach (JToken pur in lpurchases)
+                    {
+                        NubankPurchase nPurchases = pur.ToObject<NubankPurchase>();
+                        Purchase spurchase = new Purchase();
+
+                        spurchase.amount = util.ConvertValue(nPurchases.amount);
+                        spurchase.approved_reasons = nPurchases.approved_reasons;
+                        spurchase.auth_code = nPurchases.auth_code;
+                        spurchase.category = nPurchases.category;
+                        spurchase.charges = nPurchases.charges;
+                        spurchase.country = nPurchases.country;
+                        spurchase.expires_on = nPurchases.expires_on;
+                        spurchase.mcc = nPurchases.mcc;
+                        spurchase.original_merchant_name = nPurchases.original_merchant_name;
+                        spurchase.precise_amount = nPurchases.precise_amount;
+                        spurchase.time = nPurchases.time;
+                        spurchase.time_wallclock = nPurchases.time_wallclock;
+                        spurchase.type = nPurchases.type;
+
+                        purchase.Add(spurchase);
+                    }
+
+                    account.purchase = purchase;
+
                 }
+                catch(Exception e)
+                {
 
-                account.purchase = purchase;
+                    Debug.WriteLine(e);
+                }
 
                 //**************** Events ******************************************
                 //Nodes tokens events
@@ -221,34 +232,34 @@ namespace BankScraper.Controllers.Banks.Nubank
                 //Serialize JSON results into .NET objects 
                 NubankBillsSummary nubankBillsSummary = summarys[0].ToObject<NubankBillsSummary>();
 
-                billsSummary.payments = util.ConvertValue(nubankBillsSummary.payments);
-                billsSummary.interest_charge = util.ConvertValue(nubankBillsSummary.interest_charge);
-                billsSummary.total_international = util.ConvertValue(nubankBillsSummary.total_international);
+                billsSummary.payments = util.ConvertValue(nubankBillsSummary.payments, 1);
+                billsSummary.interest_charge = util.ConvertValue(nubankBillsSummary.interest_charge, 1);
+                billsSummary.total_international = nubankBillsSummary.total_international;
                 billsSummary.due_date = nubankBillsSummary.due_date;
-                billsSummary.precise_minimum_payment = util.ConvertValue(nubankBillsSummary.precise_minimum_payment);
-                billsSummary.interest_reversal = util.ConvertValue(nubankBillsSummary.interest_reversal);
+                billsSummary.precise_minimum_payment = util.ConvertValue(nubankBillsSummary.precise_minimum_payment, 1);
+                billsSummary.interest_reversal = util.ConvertValue(nubankBillsSummary.interest_reversal, 1);
                 billsSummary.close_date = nubankBillsSummary.close_date;
-                billsSummary.expenses = util.ConvertValue(nubankBillsSummary.expenses);
-                billsSummary.total_credits = util.ConvertValue(nubankBillsSummary.total_credits);
-                billsSummary.past_balance = util.ConvertValue(nubankBillsSummary.past_balance);
+                billsSummary.expenses = nubankBillsSummary.expenses;
+                billsSummary.total_credits = util.ConvertValue(nubankBillsSummary.total_credits, 1);
+                billsSummary.past_balance = util.ConvertValue(nubankBillsSummary.past_balance, 1);
                 billsSummary.effective_due_date = nubankBillsSummary.effective_due_date;
-                billsSummary.international_tax = util.ConvertValue(nubankBillsSummary.international_tax);
-                billsSummary.tax = util.ConvertValue(nubankBillsSummary.tax);
-                billsSummary.adjustments = util.ConvertValue(nubankBillsSummary.adjustments);
-                billsSummary.precise_total_balance = util.ConvertValue(nubankBillsSummary.precise_total_balance, 1);
-                billsSummary.total_financed = util.ConvertValue(nubankBillsSummary.total_financed);
+                billsSummary.international_tax = util.ConvertValue(nubankBillsSummary.international_tax, 1);
+                billsSummary.tax = util.ConvertValue(nubankBillsSummary.tax, 1);
+                billsSummary.adjustments = util.ConvertValue(nubankBillsSummary.adjustments, 1);
+                billsSummary.precise_total_balance = nubankBillsSummary.precise_total_balance;
+                billsSummary.total_financed = util.ConvertValue(nubankBillsSummary.total_financed, 1);
                 billsSummary.total_balance = util.ConvertValue(nubankBillsSummary.total_balance);
                 billsSummary.interest_rate = nubankBillsSummary.interest_rate;
-                billsSummary.total_national = util.ConvertValue(nubankBillsSummary.total_national);
-                billsSummary.previous_bill_balance = util.ConvertValue(nubankBillsSummary.previous_bill_balance);
-                billsSummary.interest = util.ConvertValue(nubankBillsSummary.interest);
+                billsSummary.total_national = nubankBillsSummary.total_national;
+                billsSummary.previous_bill_balance = util.ConvertValue(nubankBillsSummary.previous_bill_balance, 1);
+                billsSummary.interest = util.ConvertValue(nubankBillsSummary.interest, 1);
                 billsSummary.total_cumulative = util.ConvertValue(nubankBillsSummary.total_cumulative);
-                billsSummary.paid = util.ConvertValue(nubankBillsSummary.paid);
-                billsSummary.fees = util.ConvertValue(nubankBillsSummary.fees);
-                billsSummary.total_payments = util.ConvertValue(nubankBillsSummary.total_payments);
-                billsSummary.minimum_payment = util.ConvertValue(nubankBillsSummary.minimum_payment);
+                billsSummary.paid = util.ConvertValue(nubankBillsSummary.paid, 1);
+                billsSummary.fees = util.ConvertValue(nubankBillsSummary.fees, 1);
+                billsSummary.total_payments = util.ConvertValue(nubankBillsSummary.total_payments, 1);
+                billsSummary.minimum_payment = util.ConvertValue(nubankBillsSummary.minimum_payment, 1);
                 billsSummary.open_date = nubankBillsSummary.open_date;
-                billsSummary.total_accrued = util.ConvertValue(nubankBillsSummary.total_accrued);
+                billsSummary.total_accrued = util.ConvertValue(nubankBillsSummary.total_accrued, 1);
                 account.billsSummary = billsSummary;
 
             }
