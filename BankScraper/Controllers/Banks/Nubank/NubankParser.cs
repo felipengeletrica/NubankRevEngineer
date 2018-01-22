@@ -243,7 +243,7 @@ namespace BankScraper.Controllers.Banks.Nubank
                 billsSummary.total_credits = util.ConvertValue(nubankBillsSummary.total_credits, 1);
                 billsSummary.past_balance = util.ConvertValue(nubankBillsSummary.past_balance, 1);
                 billsSummary.effective_due_date = nubankBillsSummary.effective_due_date;
-                billsSummary.international_tax = util.ConvertValue(nubankBillsSummary.international_tax, 1);
+                billsSummary.international_tax = nubankBillsSummary.international_tax;
                 billsSummary.tax = util.ConvertValue(nubankBillsSummary.tax, 1);
                 billsSummary.adjustments = util.ConvertValue(nubankBillsSummary.adjustments, 1);
                 billsSummary.precise_total_balance = nubankBillsSummary.precise_total_balance;
