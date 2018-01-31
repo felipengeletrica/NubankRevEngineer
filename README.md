@@ -8,6 +8,8 @@ This program is a web page built in C #, Razor, Mono and Nuget.
 
 **WARNING:** Using this tool without care may lead to your bank account being blocked. Use at your own risk!
 
+**WARNING:** For stable version clone or download tags
+
 ## Current Supported Banks
 
 Nubank Brazil
