@@ -251,7 +251,7 @@ namespace BankScraper.Controllers.Banks.Nubank
                 billsSummary.total_balance = util.ConvertValue(nubankBillsSummary.total_balance);
                 billsSummary.interest_rate = nubankBillsSummary.interest_rate;
                 billsSummary.total_national = nubankBillsSummary.total_national;
-                billsSummary.previous_bill_balance = util.ConvertValue(nubankBillsSummary.previous_bill_balance, 1);
+                billsSummary.previous_bill_balance = nubankBillsSummary.previous_bill_balance;
                 billsSummary.interest = util.ConvertValue(nubankBillsSummary.interest, 1);
                 billsSummary.total_cumulative = util.ConvertValue(nubankBillsSummary.total_cumulative);
                 billsSummary.paid = util.ConvertValue(nubankBillsSummary.paid, 1);
