@@ -1,10 +1,13 @@
 # BankScraper
 Program web suite to parse financial transactions from brazilian bank and benefit accounts.
 
+### Image Sample
+![Template](https://github.com/felipengeletrica/BankScraper/blob/master/Scrapper.png)
+
+
 
 # C# Banckscraper
 This program is a web page built in C #, Razor, Mono and Nuget.
-
 
 **WARNING:** Using this tool without care may lead to your bank account being blocked. Use at your own risk!
 
