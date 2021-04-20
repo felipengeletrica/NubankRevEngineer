@@ -1,5 +1,6 @@
-# BankScraper
-Program web suite to parse financial transactions from brazilian bank and benefit accounts.
+# Nubank Reverse Engineer REST API 
+
+Reverse engineering in Banco Nubank's API for testing and webscrapping purposes. Currently the company's endpoints have changed.
 
 ### Image Sample
 ![Template](https://github.com/felipengeletrica/BankScraper/blob/master/Scrapper.png)
